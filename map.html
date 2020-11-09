@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知识分子数据库</title>
+    <style> ::-webkit-scrollbar{display:none;}html,body{overflow:hidden;margin:0;}
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+  <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script> -->
+<script src="https://unpkg.com/@antv/l7"></script>
+<!-- <script src="https://unpkg.com/@antv/l7-district"></script> -->
+<script>
+  // mapboxgl.accessToken = 'pk.eyJ1IjoieXVyb3JvIiwiYSI6ImNrYWpsdXlxMzA3bW8ydGxzOWwydGxpNjgifQ.eyN-rf2tco2dpVjGpuHnlw'
+  const scene = new L7.Scene({
+    id: 'map',
+    map: new L7.GaodeMap({
+    // map: new L7.Mapbox({
+      style: 'light', // 样式URL
+      center: [120.19382669582967, 30.258134],
+      pitch: 30,
+      zoom: 5,
+      // rotation: 35.97133,
+      // token: 'pk.eyJ1IjoieXVyb3JvIiwiYSI6ImNrYWpsdXlxMzA3bW8ydGxzOWwydGxpNjgifQ.eyN-rf2tco2dpVjGpuHnlw',
+      token: 'e13bd437ea727c66de9ae2a70d3be3bf',
+    }),
+  });
+  let layerPublishers = new L7.PointLayer({zIndex: 9})
+  let layerEngineering = new L7.PointLayer({zIndex: 4})
+  // let layerSciences = new L7.District.CountryLayer({zIndex: 3})
+  let layerSciences = new L7.PointLayer({zIndex: 3})
+  let layerProvinces = new L7.PolygonLayer({zIndex: 2})
+  let layerProvinceBorders = new L7.LineLayer({zIndex: 1})
+  // try {
+  //   let response = await fetch('data/publishers_location.json');
+  //   let data = await response.json();
+  //   console.log(data);
+  // } catch(e) {
+  //   console.log("Oops, error", e);
+  // }
+  scene.on('loaded', () => {
+  fetch('data/publishers_location.json')
+    .then(res => res.json())
+    .then(data => {
+      // console.log(data)
+      // scene.addImage(
+      //   'book',
+      //   './icons/library-11.svg'
+      // );
+      // layerPublishers = new L7.PointLayer({zIndex: 1})
+      layerPublishers
+        .source(data, {
+          parser: {
+            type: 'json',
+            x: 'lat',
+            y: 'lng'
+          }
+        })
+        // .shape('cylinder')
+        .shape('squareColumn')
+        // .shape('name', ['book'])
+        // .size(20)
+        // .shape('t', [
+        //     'cylinder',
+        //     'triangleColumn',
+        //     'hexagonColumn',
+        //     'squareColumn'
+        //   ])
+        .size('USEDTOTAL', function(level) {
+          return [ 8, 8, level/10 ];
+        })
+        .active(true)
+        // .color('#006CFF')
+        .color('name', [ '#5B8FF9', '#70E3B5', '#FFD458', '#FF7C6A' ])
+        // .color('t', [
+        //   '#094D4A',
+        //   '#146968',
+        //   '#1D7F7E',
+        //   '#289899',
+        //   '#34B6B7',
+        //   '#4AC5AF',
+        //   '#5FD3A6',
+        //   '#7BE39E',
+        //   '#A1EDB8',
+        //   '#CEF8D6'
+        // ])
+        .style({
+          coverage: 0.8,
+          angle: 0,
+          opacity: 0.7
+        });
+      layerPublishers.on('mousemove', e => {
+        const popup = new L7.Popup({
+          offsets: [ 0, 0 ],
+          closeButton: false
+        })
+          .setLnglat(e.lngLat)
+          .setHTML(`
+          <div class="popup">
+            <p><span>${e.feature.name}</span></p>
+            <p><span>核定量：${e.feature.PLANTOTAL}</span>  <span>使用量：${e.feature.USEDTOTAL}</span></p>
+          <div>
+          `)
+          scene.addPopup(popup);
+      });
+      scene.addLayer(layerPublishers);
+    });
+  // scene.on('loaded', () => {
+    // fetch('https://gw.alipayobjects.com/os/rmsportal/JToMOWvicvJOISZFCkEI.json')
+    // fetch('https://geo.datav.aliyun.com/areas_v2/bound/100000_full.json')
+    fetch('data/100000_full.json')
+    // fetch('https://geo.datav.aliyun.com/areas_v2/bound/100000.json')
+      .then(res => res.json())
+      .then(data => {
+        // layerProvinceBorders.setData(data)
+        // layerProvinces.setData(data)
+        // const colors = [
+        //   '#D7F9F0',
+        //   '#A6E1E0',
+        //   '#72BED6',
+        //   '#5B8FF9',
+        //   '#3474DB',
+        //   '#005CBE',
+        //   '#00419F',
+        //   '#00287E'
+        // ];
+        const colors = [
+          '#3288bd','#66c2a5','#abdda4', 
+          '#e6f598', '#ffffbf', '#fee08b',
+          '#fdae61', '#f46d43', '#d53e4f'
+        ]
+        // const layerProvinces = new L7.PolygonLayer({})
+        layerProvinces
+          .source(data)
+          .color('name', colors)
+          .shape('fill')
+          .active(true)
+          .style({
+            opacity: 0.2
+          });
+
+        // const layerProvinceBorders = new L7.LineLayer({
+        //   zIndex: 2
+        // })
+        layerProvinceBorders
+          .source(data)
+          .color('#fff')
+          .size(0.3)
+          .style({
+            opacity: 0.5
+          });
+
+        scene.addLayer(layerProvinces);
+        scene.addLayer(layerProvinceBorders);
+        const features = data.features.map(item => {
+          item.geometry = { type: 'Point', coordinates: item.properties.centroid }
+          return { geometry: { type: 'Point', coordinates: item.properties.centroid },
+            properties: item.properties }
+        })
+        const datageo = { type: "FeatureCollection", features: features}
+        const features2 = data.features.map(item => {
+          item.geometry = { type: 'Point', coordinates: item.properties.center }
+          return item
+        })
+        const datageo2 = { type: "FeatureCollection", features: features2}
+
+        fetch('data/academy.json')
+          .then(res => res.json())
+          .then(data1 => {
+            layerSciences
+              .source(datageo, {
+                transforms: [
+                  {
+                    type: 'join',
+                    sourceField: 'name', //data1 对应字段名
+                    targetField: 'name', // data 对应字段名 绑定到的地理数据
+                    data: data1,
+                  },
+                ],
+
+              })
+              .shape('circle')
+              .size('sciences', [3,50])
+              .color('sciences', ['blue', 'blue'])
+              // .active(true)
+              .style({
+                opacity: 0.3,
+                strokeWidth: 1
+              })
+            layerEngineering
+              .source(datageo2, {
+                transforms: [
+                  {
+                    type: 'join',
+                    sourceField: 'name', //data1 对应字段名
+                    targetField: 'name', // data 对应字段名 绑定到的地理数据
+                    data: data1,
+                  },
+                ],
+
+              })
+              .shape('circle')
+              .size('engineering', [3,50])
+              .color('engineering', ['red', 'red'])
+              .active(true)
+              .style({
+                opacity: 0.3,
+                strokeWidth: 1
+              })
+
+            scene.addLayer(layerSciences);
+            scene.addLayer(layerEngineering);
+            // overlayers['省区'] = layerProvinces
+        });
+      });
+  // });
+    layerSciences.on('mousemove', e => {
+        // console.log(e)
+        const popup = new L7.Popup({
+          offsets: [ 0, 0 ],
+          closeButton: false
+        })
+          .setLnglat(e.lngLat)
+          // .setHTML(`<span>中国科学院院士<span><br /><span>${e.feature.properties.name} ：${e.feature.properties.total} 人</span>`)
+          .setHTML(`
+          <div class="popup"> 
+            <span>${e.feature.properties.name} 两院院士<span>
+            <span>中国科学院 ：${e.feature.properties.sciences} 人</span>
+            <span>中国工程院 ：${e.feature.properties.engineering} 人</span>
+          </div>
+          `)
+          scene.addPopup(popup);
+      });
+    layerEngineering.on('mousemove', e => {
+        // console.log(e)
+        const popup = new L7.Popup({
+          offsets: [ 0, 0 ],
+          closeButton: false
+        })
+          .setLnglat(e.lngLat)
+          // .setHTML(`<span>中国科学院院士<span><br /><span>${e.feature.properties.name} ：${e.feature.properties.total} 人</span>`)
+          .setHTML(`
+          <div class="popup"> 
+            <span>${e.feature.properties.name} 两院院士<span>
+            <span>中国科学院 ：${e.feature.properties.sciences} 人</span>
+            <span>中国工程院 ：${e.feature.properties.engineering} 人</span>
+          </div>
+          `)
+          scene.addPopup(popup);
+      });
+    const overlayers = {
+      // '省市': layerProvinces,
+      // '省界': layerProvinceBorders,
+      '中国科学院院士':layerSciences,
+      '中国工程院院士':layerEngineering,
+      '优秀人才毕业院校': layerPublishers,
+    };
+    const layersControl = new L7.Layers({
+      overlayers
+    });
+    scene.addControl(layersControl);
+    const zoomControl = new L7.Zoom({
+      position: 'topright'
+    });
+    const scaleControl = new L7.Scale({
+      position: 'bottomright'
+    });
+    scene.addControl(zoomControl);
+    scene.addControl(scaleControl);
+  })
+</script>
+<style>
+  .l7-popup-content{opacity: 80%; background-color: cadetblue;padding: 3;}
+  .l7-popup-anchor-bottom .l7-popup-tip{border-top-color: cadetblue;}
+  /* .popup {border-radius: 5px; background-color: cadetblue;} */
+  .popup span{font-size: 14px; color: #fff;margin:0;display: block;}
+  .box11 {
+	width: 300px;
+	height: 100px;
+	background: #ccc;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.l7-popup-content {
+	position: relative;
+	max-width: 270px;
+	box-shadow: 3px 3px 8px rgba(0,0,0,0.3),
+				0px 0px 20px rgba(0,0,0,0.1) inset;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+   /* box-shadow:0 15px 10px rgba(0, 0, 0, 0.7); */
+   transform:rotate(-3deg);
+}
+
+.l7-popup-content::after{
+   right:10px;
+   left:auto;
+   transform:rotate(3deg);
+ }
+</style>
+</body>
+</html>

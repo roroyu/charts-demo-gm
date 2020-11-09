@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8">
+            <title>饼图-限定角度范围</title>
+          </head>
+          <body>
+            <div id="container" />
+            <script src="https://gw.alipayobjects.com/os/lib/antv/g2/4.1.0-beta.11/dist/g2.min.js"></script>
+            <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.11.1/dist/data-set.js"></script>
+            <script>
+            // <!-- 浏览器引入，请使用全局命名空间 G2，如 new Chart() 改为 new G2.Chart，即可运行。 -->
+                const data = [
+        { type: '80岁以上', value: 42 },
+      { type: '75-79岁', value: 13 },
+      { type: '70-74岁', value: 6 },
+      { type: '65-69岁', value: 4 },
+      { type: '60-64岁', value: 11 },
+      { type: '60岁以下', value: 24 },
+    ];
+
+    const chart = new G2.Chart({
+      container: 'container',
+      autoFit: true,
+      height: 500,
+      padding: [40, 0],
+    });
+
+    chart.coordinate('theta', {
+      startAngle: Math.PI, // 起始角度
+      endAngle: Math.PI * (3 / 2), // 结束角度
+      radius: 0.75,
+      innerRadius: 0.4,
+    });
+    chart.legend('type', {
+        position: 'right',
+      });
+    chart.data(data);
+
+    chart.tooltip({
+      showTitle: false,
+      showMarkers: false,
+    });
+
+    chart
+      .interval()
+      .adjust('stack')
+      .position('value')
+      .color('type')
+      .label('type', (val) => {
+    // const opacity = val === '四线及以下' ? 1 : 0.5;
+    return {
+    //   offset: -30,
+      style: {
+        // opacity,
+        // fill: 'white',
+        fontSize: 12,
+        shadowBlur: 1,
+        shadowColor: 'rgba(0, 0, 0, .45)',
+      },
+      content: (obj) => {
+        return obj.type + '\n' + obj.value + '%';
+      },
+    };
+  });
+
+    chart.interaction('element-active');
+
+    chart.render();
+            </script>
+          </body>
+        </html>

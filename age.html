@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="UTF-8">
+            <title>优秀人才年龄分布</title>
+          </head>
+          <body>
+            <div id="container" />
+            <script src="https://gw.alipayobjects.com/os/lib/antv/g2/4.1.0-beta.11/dist/g2.min.js"></script>
+            <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.11.1/dist/data-set.js"></script>
+            <script>
+            // <!-- 浏览器引入，请使用全局命名空间 G2，如 new Chart() 改为 new G2.Chart，即可运行。 -->
+
+    const data = [
+      { type: '80岁以上', value: 42 },
+      { type: '75-79岁', value: 13 },
+      { type: '70-74岁', value: 6 },
+      { type: '65-69岁', value: 4 },
+      { type: '60-64岁', value: 11 },
+      { type: '60岁以下', value: 24 },
+    ];
+    const chart = new G2.Chart({
+      container: 'container',
+      autoFit: true,
+      height: 500,
+      padding: [40, 80, 95, 80], // 上，右，下，左
+      // defaultInteractions: ['ellipsis-text']
+    })
+
+
+    chart.data(data)
+    chart.legend('type', {
+        position: 'right',
+      });
+    // chart.scale('value', {
+    //   alias: '流量(m^3/s)',
+    //   nice: true,
+    // });
+    chart.scale({ 
+      type: {
+        alias: '年龄段',
+      },
+      value: {
+        alias: '人数占比',
+        // tickInterval: 50,
+        nice: true,
+      }
+    });
+    chart.tooltip({
+      showMarkers: false,
+      // showTitle: true,
+      shared: true,
+      // itemTpl: '<li>占 {value}</li>',
+    });
+
+    chart.axis('type', {
+      title: {},
+    })
+    chart.axis('value', {
+      title: {},
+      label: {
+        formatter: (val) => {
+          return val + '%';
+        },
+      },
+    });
+    chart
+      // .line()
+      .interval()
+      .position('type*value')
+      .color('type')
+      .tooltip('type*value', (type, value) => {
+        return {
+          type: type,
+          name: `比例`,
+          value: `${value}%`,
+        };
+      })
+      .label('value', (value) => {
+        return {
+          content: value + '%',
+        };
+      })
+    
+    chart.interaction('active-region');
+
+    chart.render();
+            </script>
+          </body>
+        </html>
