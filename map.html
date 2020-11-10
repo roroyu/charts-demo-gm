@@ -12,6 +12,7 @@
   <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script> -->
 <script src="https://unpkg.com/@antv/l7"></script>
+<script src="https://unpkg.com/lodash"></script>
 <!-- <script src="https://unpkg.com/@antv/l7-district"></script> -->
 <script>
   // mapboxgl.accessToken = 'pk.eyJ1IjoieXVyb3JvIiwiYSI6ImNrYWpsdXlxMzA3bW8ydGxzOWwydGxpNjgifQ.eyN-rf2tco2dpVjGpuHnlw'
@@ -29,6 +30,7 @@
     }),
   });
   let layerPublishers = new L7.PointLayer({zIndex: 9})
+  let layerAlumni = new L7.PointLayer({zIndex: 8})
   let layerEngineering = new L7.PointLayer({zIndex: 4})
   // let layerSciences = new L7.District.CountryLayer({zIndex: 3})
   let layerSciences = new L7.PointLayer({zIndex: 3})
@@ -42,6 +44,77 @@
   //   console.log("Oops, error", e);
   // }
   scene.on('loaded', () => {
+    fetch('data/college_alumni.json')
+    .then(res => res.json())
+    .then(data => {
+      // console.log(data)
+      // scene.addImage(
+      //   'book',
+      //   './icons/library-11.svg'
+      // );
+      // layerPublishers = new L7.PointLayer({zIndex: 1})
+      data = _.filter(data, (o)=>{
+        return o.alumni > 0
+      })
+      console.log(data)
+      layerAlumni
+        .source(data, {
+          parser: {
+            type: 'json',
+            y: 'lat',
+            x: 'lng'
+          }
+        })
+        // .shape('cylinder')
+        .shape('squareColumn')
+        // .shape('name', ['book'])
+        // .size(20)
+        // .shape('t', [
+        //     'cylinder',
+        //     'triangleColumn',
+        //     'hexagonColumn',
+        //     'squareColumn'
+        //   ])
+        .size('alumni', function(level) {
+          return [ 8, 8, level ];
+        })
+        .active(true)
+        // .color('#006CFF')
+        .color('name', [ '#5B8FF9', '#70E3B5', '#FFD458', '#FF7C6A' ])
+        // .color('t', [
+        //   '#094D4A',
+        //   '#146968',
+        //   '#1D7F7E',
+        //   '#289899',
+        //   '#34B6B7',
+        //   '#4AC5AF',
+        //   '#5FD3A6',
+        //   '#7BE39E',
+        //   '#A1EDB8',
+        //   '#CEF8D6'
+        // ])
+        .style({
+          coverage: 0.8,
+          angle: 0,
+          opacity: 0.7
+        });
+        layerAlumni.on('mousemove', e => {
+        const popup = new L7.Popup({
+          offsets: [ 0, 0 ],
+          closeButton: false
+        })
+          .setLnglat(e.lngLat)
+          .setHTML(`
+          <div class="popup">
+            <span>${e.feature.name}</span>
+            <span>校友：${e.feature.alumni} 人</span>
+            ${e.feature.work ? `<span>工作：${e.feature.work} 人</span>` : '' }
+          <div>
+          `)
+          scene.addPopup(popup);
+      });
+      scene.addLayer(layerAlumni);
+    });
   fetch('data/publishers_location.json')
     .then(res => res.json())
     .then(data => {
@@ -106,7 +179,7 @@
           `)
           scene.addPopup(popup);
       });
-      scene.addLayer(layerPublishers);
+      // scene.addLayer(layerPublishers);
     });
   // scene.on('loaded', () => {
     // fetch('https://gw.alipayobjects.com/os/rmsportal/JToMOWvicvJOISZFCkEI.json')
@@ -256,7 +329,8 @@
       // '省界': layerProvinceBorders,
       '中国科学院院士':layerSciences,
       '中国工程院院士':layerEngineering,
-      '优秀人才毕业院校': layerPublishers,
+      '优秀人才毕业院校': layerAlumni,
+      // '出版社': layerPublishers,
     };
     const layersControl = new L7.Layers({
       overlayers
