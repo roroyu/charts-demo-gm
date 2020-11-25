@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>知识分子数据库</title>
+    <style> ::-webkit-scrollbar{display:none;}html,body{overflow:hidden;margin:0;}
+    	#map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+  <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' /> -->
+  <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script> -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.1/mapbox-gl-language.js'></script>
+  <script src="https://unpkg.com/@antv/l7"></script>
+  <script src="https://unpkg.com/lodash"></script>
+  <script src="https://unpkg.com/requirejs"></script>
+  <script src="js/world.js"></script>
+<!-- <script src="https://unpkg.com/@antv/l7-district"></script> -->
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoieXVyb3JvIiwiYSI6ImNrYWpsdXlxMzA3bW8ydGxzOWwydGxpNjgifQ.eyN-rf2tco2dpVjGpuHnlw'
+  // var map = new mapboxgl.Map({
+  //   // container: 'map',
+  //   style: 'mapbox://styles/mapbox/streets-v10',
+  //   center: [120.19382669582967, 30.258134],
+  //   minZoom: 2,
+  //   zoom: 3
+  // });
+  var map = new L7.Mapbox({
+    style: 'mapbox://styles/mapbox/streets-v10',
+    center: [120.19382669582967, 30.258134],
+    pitch: 30,
+    zoom: 2.5,
+    // rotation: 35.97133,
+  });
+
+  const scene = new L7.Scene({
+    id: 'map',
+    map,
+  });
+  mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.0/mapbox-gl-rtl-text.js');
+  scene.map.addControl(new MapboxLanguage({
+    defaultLanguage: 'zh'
+  }));
+
+  let layerPublishers = new L7.PointLayer({zIndex: 9})
+  let layerBnR = new L7.PolygonLayer({zIndex: 3})
+  let layerRcep = new L7.PolygonLayer({zIndex: 3})
+  let layerPeripheral = new L7.PolygonLayer({zIndex: 3})
+  let layerEU = new L7.PolygonLayer({zIndex: 3})
+  let layerASEAN = new L7.PolygonLayer({zIndex: 3})
+  let layerBrics = new L7.PolygonLayer({zIndex: 3})
+  let layerCountries = new L7.PolygonLayer({zIndex: 2})
+  let layerCountryBorders = new L7.LineLayer({zIndex: 1})
+  // try {
+  //   let response = await fetch('data/publishers_location.json');
+  //   let data = await response.json();
+  //   console.log(data);
+  // } catch(e) {
+  //   console.log("Oops, error", e);
+  // }
+  // fetchData = async () => {
+  //   const response = await fetch(
+  //     'data/world.geo.json',
+  //   );
+  //   const raw = await response.json();
+  //   console.log('raw: ', raw)
+  // }
+
+  scene.on('loaded', async () => {
+    let data = await fetchData()
+    // console.log('start: ', data)
+    // const colors = [
+    //   '#D7F9F0',
+    //   '#A6E1E0',
+    //   '#72BED6',
+    //   '#5B8FF9',
+    //   '#3474DB',
+    //   '#005CBE',
+    //   '#00419F',
+    //   '#00287E'
+    // ];
+    console.log('data: ', data)
+    // const colors = [
+    //   '#3288bd','#66c2a5','#abdda4', 
+    //   '#e6f598', '#ffffbf', '#fee08b',
+    //   '#fdae61', '#f46d43', '#d53e4f'
+    // ]
+    const colors = [
+      // '#DDDDDD','#C0C0C0','#969696',
+      // '#808080','#646464','#4B4B4B'
+      '#FFFFFF','#EEEEEE','#DDDDDD',
+      '#CCCCCC','#BBBBBB','#AAAAAA'
+    ]
+    layerCountries
+      .source(data.world)
+      .color('name', colors)
+      .label('name')
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.7
+      });
+
+    layerCountryBorders
+      .source(data.world)
+      .color('#fff')
+      .size(0.3)
+      .style({
+        opacity: 0.5
+      });
+
+    layerBnR
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.bnr,
+          },
+        ],
+      })
+      // .color('bnr', (type) => {
+      //   // 通过回调函数
+      //   if (type === 1) {
+      //     return 'green';
+      //   }
+      //   // return 'blue';
+      // })
+      // .color('name', colors)
+      .color('bnr', [null,'green'])
+      .label('bnr')
+      .shape('fill')
+      // .shape('line').size(1)
+      // .shape('extrude').size(10)
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    layerRcep
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.rcep,
+          },
+        ],
+      })
+      .color('rcep', [null,'blue'])
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    layerPeripheral
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.peripheral,
+          },
+        ],
+      })
+      .color('peripheral', [null,'yellow'])
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    layerBrics
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.brics,
+          },
+        ],
+      })
+      .color('brics', [null,'gold'])
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    layerEU
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.eu,
+          },
+        ],
+      })
+      .color('eu', [null,'brown'])
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    layerASEAN
+      .source(data.world, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'country', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.asean,
+          },
+        ],
+      })
+      .color('asean', [null,'orange'])
+      .shape('fill')
+      .active(true)
+      .style({
+        opacity: 0.3
+      });
+    scene.addLayer(layerCountries);
+    scene.addLayer(layerCountryBorders);
+    scene.addLayer(layerBnR);
+    scene.addLayer(layerRcep);
+    scene.addLayer(layerPeripheral);
+    scene.addLayer(layerBrics);
+    scene.addLayer(layerEU);
+    scene.addLayer(layerASEAN);
+  });
+
+  layerCountries.on('mousemove', e => {
+    // console.log(e)
+    const popup = new L7.Popup({
+      offsets: [ 0, 0 ],
+      closeButton: false
+    })
+      .setLnglat(e.lngLat)
+      // .setHTML(`<span>中国科学院院士<span><br /><span>${e.feature.properties.name} ：${e.feature.properties.total} 人</span>`)
+      .setHTML(`
+      <div class="popup"> 
+        <span>${e.feature.properties.name}<span>
+        ${e.feature.properties.brics ? `<span>金砖国家</span>` : `` }
+        ${e.feature.properties.bnr ? `<span>一带一路</span>` : `` }
+      </div>
+      `)
+      scene.addPopup(popup);
+  });
+
+    const overlayers = {
+      '国家': layerCountries,
+      // '国界': layerCountryBorders,
+      '一带一路':layerBnR,
+      'RCEP':layerRcep,
+      '周边国家':layerPeripheral,
+      '欧盟':layerEU,
+      '东盟':layerASEAN,
+      '金砖国家':layerBrics,
+      // '出版社': layerPublishers,
+    };
+    const layersControl = new L7.Layers({
+      overlayers
+    });
+    scene.addControl(layersControl);
+    const zoomControl = new L7.Zoom({
+      position: 'topright'
+    });
+    const scaleControl = new L7.Scale({
+      position: 'bottomright'
+    });
+    scene.addControl(zoomControl);
+    scene.addControl(scaleControl);
+  // })
+</script>
+<style>
+  .l7-popup-content{opacity: 80%; background-color: cadetblue;padding: 3;}
+  .l7-popup-anchor-bottom .l7-popup-tip{border-top-color: cadetblue;}
+  /* .popup {border-radius: 5px; background-color: cadetblue;} */
+  .popup span{font-size: 14px; color: #fff;margin:0;display: block;}
+  .box11 {
+	width: 300px;
+	height: 100px;
+	background: #ccc;
+	border-radius: 10px;
+	margin: 10px;
+}
+
+.l7-popup-content {
+	position: relative;
+	max-width: 270px;
+	box-shadow: 3px 3px 8px rgba(0,0,0,0.3),
+				0px 0px 20px rgba(0,0,0,0.1) inset;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+}
+
+.l7-popup-content::before,
+.l7-popup-content::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+   /* box-shadow:0 15px 10px rgba(0, 0, 0, 0.7); */
+   transform:rotate(-3deg);
+}
+
+.l7-popup-content::after{
+   right:10px;
+   left:auto;
+   transform:rotate(3deg);
+ }
+</style>
+</body>
+</html>

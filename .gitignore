@@ -3,8 +3,11 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,dotenv
 
 # /data
-/data/publisher*
-/data/province*
+data/publisher*
+data/province*
+data/world
+ics
+
 
 ### dotenv ###
 .env
