@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>知识分子数据库</title>
+    <title>国际书展</title>
     <style> ::-webkit-scrollbar{display:none;}html,body{overflow:hidden;margin:0;}
     	#map { position:absolute; top:0; bottom:0; width:100%; }
     </style>
@@ -15,8 +15,10 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.1/mapbox-gl-language.js'></script>
   <script src="https://unpkg.com/@antv/l7"></script>
+  <script src="https://unpkg.com/moment"></script>
   <script src="https://unpkg.com/lodash"></script>
-  <script src="https://unpkg.com/requirejs"></script>
+  <!-- <script src="https://unpkg.com/requirejs"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script> -->
   <script src="js/world.js"></script>
 <!-- <script src="https://unpkg.com/@antv/l7-district"></script> -->
 <script>
@@ -46,6 +48,7 @@
   }));
 
   let layerPublishers = new L7.PointLayer({zIndex: 9})
+  let layerFairs = new L7.PointLayer({zIndex: 6})
   let layerBnR = new L7.PolygonLayer({zIndex: 3})
   let layerRcep = new L7.PolygonLayer({zIndex: 3})
   let layerPeripheral = new L7.PolygonLayer({zIndex: 3})
@@ -101,7 +104,7 @@
       .shape('fill')
       .active(true)
       .style({
-        opacity: 0.7
+        opacity: 0.2
       });
 
     layerCountryBorders
@@ -230,9 +233,48 @@
     scene.addLayer(layerBnR);
     scene.addLayer(layerRcep);
     scene.addLayer(layerPeripheral);
-    scene.addLayer(layerBrics);
+    // scene.addLayer(layerBrics);
     scene.addLayer(layerEU);
-    scene.addLayer(layerASEAN);
+    // scene.addLayer(layerASEAN);
+
+    // const markerLayer = new L7.MarkerLayer();
+    // let nodes = data.fairs
+    // for (let i = 0; i < nodes.length; i++) {
+    //   if (nodes[i].g !== '1' || nodes[i].v === '') {
+    //     continue;
+    //   }
+    //   const el = document.createElement('label');
+    //   el.className = 'labelclass';
+    //   el.textContent = nodes[i].v + '℃';
+    //   el.style.background = getColor(nodes[i].v);
+    //   el.style.borderColor = getColor(nodes[i].v);
+    //   const marker = new L7.Marker({
+    //     element: el
+    //   }).setLnglat({ lng: nodes[i].x * 1, lat: nodes[i].y });
+    //   markerLayer.addMarker(marker);
+    // }
+    // scene.addMarkerLayer(markerLayer);
+    scene.addImage(
+      'marker',
+      'img/A_BJ6cTpDcuLcAAAAAAAAAAABkARQnAQ.png'
+    );
+    // const imageLayer = new PointLayer()
+    layerFairs
+      .source(data.cities, {
+        transforms: [
+          {
+            type: 'join',
+            sourceField: 'city', //data1 对应字段名
+            targetField: 'name', // data 对应字段名 绑定到的地理数据
+            data: data.fairs,
+          },
+        ],
+      })
+      .shape('marker')
+      .color('fair', [null,'brown'])
+      .active(true)
+      .size(12);
+    scene.addLayer(layerFairs);
   });
 
   layerCountries.on('mousemove', e => {
@@ -253,29 +295,48 @@
       scene.addPopup(popup);
   });
 
-    const overlayers = {
-      '国家': layerCountries,
-      // '国界': layerCountryBorders,
-      '一带一路':layerBnR,
-      'RCEP':layerRcep,
-      '周边国家':layerPeripheral,
-      '欧盟':layerEU,
-      '东盟':layerASEAN,
-      '金砖国家':layerBrics,
-      // '出版社': layerPublishers,
-    };
-    const layersControl = new L7.Layers({
-      overlayers
-    });
-    scene.addControl(layersControl);
-    const zoomControl = new L7.Zoom({
-      position: 'topright'
-    });
-    const scaleControl = new L7.Scale({
-      position: 'bottomright'
-    });
-    scene.addControl(zoomControl);
-    scene.addControl(scaleControl);
+  layerFairs.on('mousemove', e => {
+    console.log(e)
+    const popup = new L7.Popup({
+      offsets: [ 0, 0 ],
+      closeButton: false
+    })
+      .setLnglat(e.lngLat)
+      // .setHTML(`<span>中国科学院院士<span><br /><span>${e.feature.properties.name} ：${e.feature.properties.total} 人</span>`)
+      .setHTML(`
+      <div class="popup"> 
+        <a href=${e.feature.properties.url}><img style="height: 60px;" src=${e.feature.properties.img} /></a>
+        <span>${e.feature.properties.summary}<span>
+        <span>${moment(e.feature.properties.dtstart).format("YYYY-MM-DD")} -- ${moment(e.feature.properties.dtend).format("YYYY-MM-DD")}<span>
+      </div>
+      `)
+      scene.addPopup(popup);
+  });
+
+  const overlayers = {
+    '国家': layerCountries,
+    '国际书展': layerFairs,
+    // '国界': layerCountryBorders,
+    '一带一路':layerBnR,
+    'RCEP':layerRcep,
+    '周边国家':layerPeripheral,
+    '欧盟':layerEU,
+    // '东盟':layerASEAN,
+    // '金砖国家':layerBrics,
+    // '出版社': layerPublishers,
+  };
+  const layersControl = new L7.Layers({
+    overlayers
+  });
+  scene.addControl(layersControl);
+  const zoomControl = new L7.Zoom({
+    position: 'topright'
+  });
+  const scaleControl = new L7.Scale({
+    position: 'bottomright'
+  });
+  scene.addControl(zoomControl);
+  scene.addControl(scaleControl);
   // })
 </script>
 <style>
