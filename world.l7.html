@@ -47,8 +47,8 @@
     defaultLanguage: 'zh'
   }));
 
-  let layerPublishers = new L7.PointLayer({zIndex: 9})
-  let layerFairs = new L7.PointLayer({zIndex: 6})
+  // let layerPublishers = new L7.PointLayer({zIndex: 9})
+  let layerFairs = new L7.PointLayer({zIndex: 9})
   let layerBnR = new L7.PolygonLayer({zIndex: 3})
   let layerRcep = new L7.PolygonLayer({zIndex: 3})
   let layerPeripheral = new L7.PolygonLayer({zIndex: 3})
@@ -228,7 +228,7 @@
       .style({
         opacity: 0.3
       });
-    scene.addLayer(layerCountries);
+    // scene.addLayer(layerCountries);
     scene.addLayer(layerCountryBorders);
     scene.addLayer(layerBnR);
     scene.addLayer(layerRcep);
@@ -261,6 +261,11 @@
     // const imageLayer = new PointLayer()
     layerFairs
       .source(data.cities, {
+        // parser: {
+        //   type: 'json',
+        //   x: 'longitude',
+        //   y: 'latitude',
+        // },
         transforms: [
           {
             type: 'join',
@@ -270,14 +275,34 @@
           },
         ],
       })
-      .shape('marker')
-      .color('fair', [null,'brown'])
+      // .shape('marker')
+      // .shape('circle')
+      // .size('pop_max', [10, 30])
+      // .shape('fair', [
+      //   'cylinder',
+      //   'triangleColumn',
+      //   'hexagonColumn',
+      //   'squareColumn',
+      // ])
+      .shape('cylinder')
+      .size('pop_max', (h) => {
+        // console.log(h/100000)
+        return [12, 12, h/100000];
+      })
+      // .color('fair')
+      // .color('fair', [null,'#78c679'])
+      // .color('fair', colors)
+      .color('fair*pop_max', (t,v) => {return getColor(t,v)})
+      // .label('fair')
+      .style({
+        opacity: 0.8
+      })
       .active(true)
-      .size(12);
+      // .size(12);
     scene.addLayer(layerFairs);
   });
 
-  layerCountries.on('mousemove', e => {
+  layerCountries.on('click', e => {
     // console.log(e)
     const popup = new L7.Popup({
       offsets: [ 0, 0 ],
@@ -295,7 +320,7 @@
       scene.addPopup(popup);
   });
 
-  layerFairs.on('mousemove', e => {
+  layerFairs.on('click', e => {
     console.log(e)
     const popup = new L7.Popup({
       offsets: [ 0, 0 ],
@@ -305,16 +330,18 @@
       // .setHTML(`<span>中国科学院院士<span><br /><span>${e.feature.properties.name} ：${e.feature.properties.total} 人</span>`)
       .setHTML(`
       <div class="popup"> 
-        <a href=${e.feature.properties.url}><img style="height: 60px;" src=${e.feature.properties.img} /></a>
+        <a href=${e.feature.properties.url} target="_blank" ><img style="height: 60px;" src=${e.feature.properties.img} /></a>
         <span>${e.feature.properties.summary}<span>
-        <span>${moment(e.feature.properties.dtstart).format("YYYY-MM-DD")} -- ${moment(e.feature.properties.dtend).format("YYYY-MM-DD")}<span>
+        ${e.feature.properties.date ? `<span>${e.feature.properties.date}` 
+          : `<span>${moment(e.feature.properties.dtstart).format("YYYY-MM-DD")} -- ${moment(e.feature.properties.dtend).format("YYYY-MM-DD")}<span>`
+        }
       </div>
       `)
       scene.addPopup(popup);
   });
 
   const overlayers = {
-    '国家': layerCountries,
+    // '国家': layerCountries,
     '国际书展': layerFairs,
     // '国界': layerCountryBorders,
     '一带一路':layerBnR,
@@ -338,6 +365,33 @@
   scene.addControl(zoomControl);
   scene.addControl(scaleControl);
   // })
+  function getColor(t, value) {
+    const v = value / 100000
+    // console.log(v)
+    // const colors = [ '#ffffe5', '#f7fcb9', '#d9f0a3', '#addd8e', '#78c679', '#41ab5d', '#238443', '#005a32' ];
+    // const colors = [ '#ffffe5', '#f7fcb9', '#d9f0a3', '#addd8e', '#78c679', '#41ab5d', '#238443' ];
+    // var colors= ["#FF0000","#FF7F00","#FFFF00","#00FF00","#00FFFF","#0000FF","#8B00FF"];
+    var colors= ["#FF0000","#8B00FF","#0000FF","#FFFF00","#00FF00","#00FFFF","#FF7F00"];
+    if (!t) return '';
+    const color = v > 105
+      // ? colors[7]
+      // : v > 100
+        ? colors[0]
+        : v > 70
+          ? colors[1]
+          : v > 35
+            ? colors[6]
+            : v > 20
+              ? colors[2]
+              : v > 10
+                ? colors[4]
+                : v > 5
+                  ? colors[5]
+                  : colors[3]
+    console.log('color: ',t, v, color)
+    return color;
+    // return [null, color];
+  }
 </script>
 <style>
   .l7-popup-content{opacity: 80%; background-color: cadetblue;padding: 3;}

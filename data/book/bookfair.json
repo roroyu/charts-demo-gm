@@ -1,0 +1,834 @@
+[
+  {
+    "city": "Paris", "country": "France",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/livre-paris-logo-2019.png",
+    "uid": "20201119T055411CET-3061jenzHp@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045411Z",
+    "description": "153'000 visitors\\n18'000 young visitors\\n33'000 professionals\\n1'200 exhibitors\\n50 countries represented\\n2'500 events https://www.internationalpublishers.org/component/rseventspro/event/170-livreparis-paris-book-fair-paris-france",
+    "dtstart": "20210527T220000Z",
+    "dtend": "20210531T160000Z",
+    "location": "Paris Expo Porte de Versailles 1 Place de la Porte de Versailles 75015 Paris France (1 Place de la Porte de Versailles\\, 75015 Paris\\, France)",
+    "summary": "'LivreParis' Paris Book Fair\\, Paris\\, France",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/170-livreparis-paris-book-fair-paris-france"
+  },
+  {
+    "city": "Bologna", "country": "Italy",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/BCBF18-logo4_2019.png",
+    "uid": "20201119T055403CET-07982ETo9J@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045403Z",
+    "description": "Key figures:\\n1'278 exhibitors\\n24'038 sqm of exhibition area\\n26'000 visitors\\nmore than 100 countries represented\\n856 journalists\\nread our blogs \\;2018 BCBF - part 1 \\;and part 2 \\;with some tips for first-timers\\n \\; https://www.internationalpublishers.org/component/rseventspro/event/198-bologna-children-s-book-fair-bologna-italy",
+    "dtstart": "20210412T070000Z",
+    "dtend": "20210415T163000Z",
+    "location": "Bologna Childrens Book Fair\\, Piazza Costituzione\\, 6 40128 Bologna (Piazza della Costituzione\\, 40128 Bologna BO\\, Italy)",
+    "summary": "Bologna Children's Book Fair\\, Bologna\\, Italy",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/198-bologna-children-s-book-fair-bologna-italy"
+  },
+  {
+    "city": "Shanghai", "country": "China",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/CCBF-2019-LOGO-VERTICAL%20002.PNG",
+    "uid": "20201119T055258CET-9950khlkgj@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045258Z",
+    "description": " https://www.internationalpublishers.org/component/rseventspro/event/208-china-shanghai-international-children-s-book-fair-shanghai-china",
+    "dtstart": "20201112T230000Z",
+    "dtend": "20201115T110000Z",
+    "location": "Shanghai World Expo Exhibition and Convention Centre - Hall 1 (No. 1099\\, Guozhan Road\\, Pudong New Area\\, Shanghai\\, China)",
+    "summary": "China Shanghai International Children's Book Fair\\, Shanghai\\, China ",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/208-china-shanghai-international-children-s-book-fair-shanghai-china"
+  },
+  {
+    "city": "Frankfurt", "country": "Germany",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/43003_FBM%20Logo%20Rot%20SC.jpg",
+    "uid": "20201119T055434CET-5419e6TV7E@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045434Z",
+    "description": "Canada guest of honor 2020\\nFigures for 2019 edition:\\n300'000 visitors\\n7'450 exhibitors\\n10'000 journalists https://www.internationalpublishers.org/component/rseventspro/event/157-frankfurt-book-fair-frankfurt-germany",
+    "dtstart": "20211019T220000Z",
+    "dtend": "20211024T103100Z",
+    "location": "Ludwig-Erhard-Anlage 1\\, 60327 Frankfurt am Main\\, Deutschland (Ludwig-Erhard-Anlage 1\\, 60327 Frankfurt am Main\\, Germany)",
+    "summary": "Frankfurt Book Fair\\, Frankfurt\\, Germany",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/157-frankfurt-book-fair-frankfurt-germany"
+  },
+  {
+    "city": "Accra", "country": "Ghana",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/Ghana%20Book%20Fair.jpg",
+    "uid": "20201119T055427CET-0015u99nmI@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045427Z",
+    "description": " https://www.internationalpublishers.org/component/rseventspro/event/176-ghana-international-book-fair-accra-ghana",
+    "dtstart": "20210826T070000Z",
+    "dtend": "20210829T170000Z",
+    "location": "Fantasy Dome\\, Trade Fair Centre\\, Accra\\, Ghana (Accra\\, Ghana)",
+    "summary": "Ghana International Book Fair\\, Accra\\, Ghana",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/176-ghana-international-book-fair-accra-ghana"
+  },
+  {
+    "city": "Moscow", "country": "Russia",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/fiction-non-fiction.jpg",
+    "uid": "20201119T052322CET-5688h1BVWw@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T042322Z",
+    "description": "More than 300 exhibitors\\nover 35'000 visitors\\n25 countries represented https://www.internationalpublishers.org/component/rseventspro/event/210-international-non-fiction-book-fair-moscow-russia",
+    "dtstart": "20201207T130000Z",
+    "dtend": "20201213T200000Z",
+    "location": "Gostiniy Dvor\\, 4\\, Ilyinka str.\\, Moscow\\, Russia (Gostiniy Dvor\\, 4\\, Ilyinka str.\\, Moscow\\, Russia)",
+    "summary": "International Non/Fiction Book Fair\\, Moscow\\, Russia",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/210-international-non-fiction-book-fair-moscow-russia"
+  },
+  {
+    "city": "", "country": "",
+    "img": "",
+    "comment": "这是个线上展览。。。",
+    "uid": "20201119T055233CET-2995tOpcNn@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045233Z",
+    "description": " https://www.internationalpublishers.org/component/rseventspro/event/164-liber-20-feria-internacional-del-libro-digital-format",
+    "dtstart": "20201027T110000Z",
+    "dtend": "20201029T180000Z",
+    "location": "Online ()",
+    "summary": "LIBER 20\\, Feria Internacional del Libro - Digital format",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/164-liber-20-feria-internacional-del-libro-digital-format"
+  },
+  {
+    "city": "Montral", "country": "Canada",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/montreal-salon-du-livre-logotype.jpg",
+    "uid": "20201119T055316CET-7431cRMHt5@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045316Z",
+    "description": " https://www.internationalpublishers.org/component/rseventspro/event/162-salon-du-livre-de-montreal-montreal-canada",
+    "dtstart": "20201125T090000Z",
+    "dtend": "20201130T150000Z",
+    "location": "Palais des Congrs de Montral\\, 1001 Place Jean-Paul-Riopelle\\, Montral\\, Canada (Palais des congrs de Montral\\, 1001 Place Jean-Paul-Riopelle\\, Montral\\, Canada)",
+    "summary": "Salon du livre de Montral\\, Montral\\, Canada",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/162-salon-du-livre-de-montreal-montreal-canada"
+  },
+  {
+    "city": "Sharjah", "country": "UAE",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/logo-sheen.png",
+    "uid": "20201119T055249CET-58276U0grh@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045249Z",
+    "description": "2'000 exhibitors\\n2.5 million visitors\\n13\\,500 sqm of the exhibition area\\n81 countries represented\\nOver 1.7 million titles on display\\n \\; https://www.internationalpublishers.org/component/rseventspro/event/160-sharjah-international-book-fair-sharjah-uae",
+    "dtstart": "20201104T090000Z",
+    "dtend": "20201114T190000Z",
+    "location": "Al Khan Area\\, Al Taawun Street\\, Opp Al Arab Mall\\, Sharjah\\, United Arab Emirates (Al Khan Area - Al Taawun St - Sharjah - United Arab Emirates)",
+    "summary": "Sharjah International Book Fair\\, Sharjah\\, UAE",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/160-sharjah-international-book-fair-sharjah-uae"
+  },
+  {
+    "city": "London", "country": "U.K",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/LBF%202021.JPG",
+    "uid": "20201119T055353CET-5004MgVCxL@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045353Z",
+    "description": "1'500 exhibitors\\nabout 25'000 visitors\\n7'688 sqm of exhibition area https://www.internationalpublishers.org/component/rseventspro/event/145-the-london-book-fair-london-u-k",
+    "dtstart": "20210308T230000Z",
+    "dtend": "20210311T170000Z",
+    "location": "Olympia Conference Centre\\, Hammersmith Road\\, Kensington\\, London W14 8UX\\, United Kingdom (Hammersmith Rd\\, Hammersmith\\, London W14 8UX\\, UK)",
+    "summary": "The London Book Fair\\, London\\, U.K",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/145-the-london-book-fair-london-u-k"
+  },
+  {
+    "city": "Vienna", "country": "Austria",
+    "img": "https://www.internationalpublishers.org/components/com_rseventspro/assets/images/events/Vienna%20Book%20Fair.jpg",
+    "uid": "20201119T055442CET-5261LJix6a@https://www.internationalpublishers.org/",
+    "dtstamp": "20201119T045442Z",
+    "description": " https://www.internationalpublishers.org/component/rseventspro/event/259-vienna-international-book-fair-vienna-austria",
+    "dtstart": "20211109T230000Z",
+    "dtend": "20211114T160000Z",
+    "location": "Vienna\\, Austria (Vienna\\, Austria)",
+    "summary": "Vienna International Book Fair\\, Vienna\\, Austria",
+    "url": "https://www.internationalpublishers.org/component/rseventspro/event/259-vienna-international-book-fair-vienna-austria"
+  },
+  {
+	"city":"New Delhi",
+    "country":"India",
+    "date":"January 5 \u2013 23",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/2-1-1.png",
+    "summary":"New Delhi, India",
+    "url":"http://www.newdelhiworldbookfair.gov.in/"
+  },
+  {
+    "city":"Milan",
+    "country":"Italy",
+    "date":"January 19 \u2013 20",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/3.png",
+    "summary":"Salone della Cultura",
+    "url":"https://salonedellacultura.it/"
+  },
+  {
+    "city":"Cairo",
+    "country":"Egypt",
+    "date":"January 24 \u2013 February 5",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/5-1.png",
+    "summary":"Cairo International Book Fair",
+    "url":"http://www.cairobookfair.org.eg/opening/"
+  },
+  {
+    "city":"Casablanca",
+    "country":"Morocco",
+    "date":"February 7 \u2013 17",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/8.png",
+    "summary":"Casablanca Book Fair",
+    "url":"http://www.salonlivrecasa.ma/fr/"
+  },
+  {
+    "city":"Taipei",
+    "country":"Taiwan",
+    "date":"February 12 \u2013 17",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/9.png",
+    "summary":"Taipei International Book Exhibition",
+    "url":"http://www.tibe.org.tw/en/"
+  },
+  {
+    "city":"Brussels",
+    "country":"Belgium",
+    "date":"February 14 \u2013 17",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/10.png",
+    "summary":"Brussels Book Fair",
+    "url":"https://flb.be/"
+  },
+  {
+    "city":"Muscat",
+    "country":"Oman",
+    "date":"February 20 \u2013 March 2",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/12.png",
+    "summary":"The Muscat International Book Fair",
+    "url":"http://www.mctbookfair.gov.om/"
+  },
+  {
+    "city":"Vilnius",
+    "country":"Lithuania",
+    "date":"February 21 \u2013\u00a0 24",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/13.png",
+    "summary":"Vilnius International Book Fair",
+    "url":"https://www.vilniausknygumuge.lt/en/"
+  },
+  {
+    "city":"Nieuwegein",
+    "country":"Netherlands",
+    "date":"February 21 \u2013\u00a0 24",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/14.png",
+    "summary":"Boekenfestijn Book Festival",
+    "url":"https://boekenfestijn.com/agenda"
+  },
+  {
+    "city":"Pozna\u0144",
+    "country":"Poland",
+    "date":"March 1 \u2013 3",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/Books-for-Children-Young-Adults-and-Parents.png",
+    "summary":"Books for Children, Young Adults, and Parents",
+    "url":"https://www.targiksiazki.pl/en/about-the-fair/"
+  },
+  {
+    "city":"Dubai",
+    "country":"UAE",
+    "date":"March 1 \u2013 9",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/17-1.png",
+    "summary":"Emirates Airline Festival of Literature",
+    "url":"https://www.emirateslitfest.com/"
+  },
+  {
+    "city":"Moscow",
+    "country":"Russia",
+    "date":"March 5 \u2013 9",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/18.png",
+    "summary":"Moscow International Book Fair",
+    "url":"http://mibf.info/english"
+  },
+  {
+    "city":"Bursa",
+    "country":"Turkey",
+    "date":"March 9 \u2013 17",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/21.png",
+    "summary":"Bursa Book Fair",
+    "url":"http://tuyap.com.tr/en/exhibitions/bursa-17th-book-fair#scope-of-the-fair"
+  },
+  {
+    "city":"London",
+    "country":"U.K.",
+    "date":"March 12 \u2013 14",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/22.png",
+    "summary":"The London Book Fair",
+    "url":"https://www.londonbookfair.co.uk/"
+  },
+  {
+    "city":"Paris",
+    "country":"France",
+    "date":"March 15 \u2013 18",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/23.png",
+    "summary":"LivreParis\u00a0",
+    "url":"https://www.livreparis.com/"
+  },
+  {
+    "city":"Leipzig",
+    "country":"Germany",
+    "date":"March 21 \u2013 24",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/24.png",
+    "summary":"Leipzig Book Fair",
+    "url":"https://www.leipziger-buchmesse.de/"
+  },
+  {
+    "city":"Alexandria",
+    "country":"Egypt",
+    "date":"March 25 \u2013 April 7",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/25.png",
+    "summary":"Alexandria International Book Fair",
+    "url":"https://www.bibalex.org/en/Page/Alexandrina%20International%20Book%20Fair%20%282016%29?Keywords="
+  },
+  {
+    "city":"Kuala Lumpur",
+    "country":"Malaysia",
+    "date":"March 29\u00a0 \u2013\u00a0 April 7",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/38.png",
+    "summary":"Kuala Lumpur International Book Fair",
+    "url":"https://www.klibf.my/#"
+  },
+  {
+    "city":"Bologna",
+    "country":"Italy",
+    "date":"April 1 \u2013 4",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/27.png",
+    "summary":"Bologna Children\u2019s Book Fair",
+    "url":"http://www.bookfair.bolognafiere.it/en/home/878.html"
+  },
+  {
+    "city":"Izmir",
+    "country":"Turkey",
+    "date":"April 6 \u2013 14",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/28.png",
+    "summary":"Izmir Book Fair",
+    "url":"http://tuyap.com.tr/en/exhibitions/24th-izmir-book-fair#scope-of-the-fair"
+  },
+  {
+    "city":"Qu\u00e9bec",
+    "country":"Canada",
+    "date":"April 10 \u2013 14",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/30.png",
+    "summary":"Qu\u00e9bec International Book Fair",
+    "url":"http://www.silq.ca/"
+  },
+  {
+    "city":"Kortrijk",
+    "country":"Belgium",
+    "date":"April 11 \u2013 14",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/14-1.png",
+    "summary":"Boekenfestijn Book Festival",
+    "url":"https://boekenfestijn.com/"
+  },
+  {
+    "city":"Astana",
+    "country":"Kazakhstan",
+    "date":"April 24 \u2013 27",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/37-1.png",
+    "summary":"Eurasian International Book Fair, Astana",
+    "url":"http://www.eurasbook.com/eng-index.html"
+  },
+  {
+    "city":"Abu Dhabi",
+    "country":"UAE",
+    "date":"April 24 \u2013 30",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/33.png",
+    "summary":"Abu Dhabi International Book Fair",
+    "url":"https://adbookfair.com/en/default.aspx"
+  },
+  {
+    "city":"Tehran",
+    "country":"Iran",
+    "date":"April 24 \u2013 May 4",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/50-2.png",
+    "summary":"Tehran International Book Fair",
+    "url":"https://tibf.ir/en"
+  },
+  {
+    "city":"Budapest",
+    "country":"Hungary",
+    "date":"April 25 \u2013 28",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/34.png",
+    "summary":"Budapest International Book Festival",
+    "url":"https://bookfestival.hu/en"
+  },
+  {
+    "city":"Bogota",
+    "country":"Colombia",
+    "date":"April 25 \u2013 May 6",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/32.png",
+    "summary":"Bogota International Book Fair",
+    "url":"https://feriadellibro.com/?i=2"
+  },
+  {
+    "city":"Buenos Aires",
+    "country":"Argentina",
+    "date":"April 25 \u00a0\u2013 May 13",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/35.png",
+    "summary":"Buenos Aires Book Fair",
+    "url":"https://www.el-libro.org.ar/buenos-aires-book-fair/"
+  },
+  {
+    "city":"Geneva",
+    "country":"Switzerland",
+    "date":"May 1 \u2013 5",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/40.png",
+    "summary":"Geneva Book Fair",
+    "url":"https://salondulivre.ch/"
+  },
+  {
+    "city":"Berlin",
+    "country":"Germany",
+    "date":"May 3 \u2013 5",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/41.png",
+    "summary":"Berlin Art Book Festival",
+    "url":"http://missread.com/"
+  },
+  {
+    "city":"Greece",
+    "date":"May 9 \u2013\u00a012",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/49-1.png",
+    "summary":"Thessaloniki Book Fair",
+    "url":"http://thessalonikibookfair.gr/"
+  },
+  {
+    "city":"Prague",
+    "country":"Czech Republic",
+    "date":"May 9 \u2013 12",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/29.png",
+    "summary":"Prague International Book Fair",
+    "url":"http://sk2018.svetknihy.cz/en/"
+  },
+  {
+    "city":"Turin",
+    "country":"Italy",
+    "date":"May 9 \u2013 13",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/43.png",
+    "summary":"Turin International Book Fair",
+    "url":"http://www.salonelibro.it/it/"
+  },
+  {
+    "city":"Warsaw",
+    "country":"Poland",
+    "date":"May 23 \u2013 26",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/44.png",
+    "summary":"WBF Warsaw Book Fair",
+    "url":"http://www.targi-ksiazki.waw.pl/"
+  },
+  {
+    "city":"Johannesburg",
+    "country":"South Africa",
+    "date":"May 25",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/45.png",
+    "url":"http://kingsmead.co.za/bookfair/"
+  },
+  {
+    "city":"New York City",
+    "country":"USA",
+    "date":"May 29 \u2013 31",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/46.png",
+    "summary":"BookExpo America",
+    "url":"https://www.bookexpoamerica.com/"
+  },
+  {
+    "city":"Bucharest",
+    "country":"Romania",
+    "date":"May 29 \u2013 June 2",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/53.png",
+    "summary":"Bookfest International Book Fair",
+    "url":"http://www.bookfest.ro/"
+  },
+  {
+    "city":"Lisbon",
+    "country":"Portugal",
+    "date":"May 29\u00a0\u2013\u00a0 June 16",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/51.png",
+    "summary":"Lisbon Book Fair",
+    "url":"http://feiradolivrodelisboa.pt/"
+  },
+  {
+    "city":"Tbilisi",
+    "country":"Georgia",
+    "date":"May 31 \u2013 June 3",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/52.png",
+    "summary":"Tbilisi International Book Fair",
+    "url":"http://www.gpba.ge/new/16/"
+  },
+  {
+    "city":"London",
+    "country":"UK",
+    "date":"June 7 \u2013 9",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/45-2.png",
+    "url":"https://www.firstslondon.com/"
+  },
+  {
+    "city":"Seoul",
+    "country":"South Korea",
+    "date":"June 19 \u2013 23",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/55.png",
+    "summary":"Seoul International Book Fair",
+    "url":"http://sibf.or.kr/"
+  },
+  {
+    "city":"Kuala Lumpur",
+    "country":"Malaysia",
+    "date":"June",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/56.png",
+    "summary":"BookFest Malaysia",
+    "url":"http://www.bookfestmalaysia.com/index.php"
+  },
+  {
+    "city":"Melbourne",
+    "country":"Australia",
+    "date":"July 12 \u2013 14",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/57.png",
+    "summary":"Melbourne Rare Book Fair",
+    "url":"http://www.rarebookfair.com/"
+  },
+  {
+    "city":"Hong Kong",
+    "date":"July 17 \u2013 23",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/58-2.png",
+    "summary":"Hong Kong Book Fair",
+    "url":"http://hkbookfair.hktdc.com/en/index.html"
+  },
+  {
+    "city":"Toronto",
+    "country":"Canada",
+    "date":"July",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/59.png",
+    "summary":"Toronto Art Book Fair",
+    "url":"https://www.torontoartbookfair.com/"
+  },
+  {
+    "city":"Cologne",
+    "country":"Germany",
+    "date":"July",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/60.png",
+    "summary":"Cologne Art Book Fair",
+    "url":"http://thecologneartbookfair.com/"
+  },
+  {
+    "city":"Kathmandu",
+    "country":"Nepal",
+    "date":"August 14 \u2013 20",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/download.png",
+    "summary":"Nepal International Book Fair",
+    "url":"http://www.nepalinternationalbookfair.com/"
+  },
+  {
+    "city":"Beijing",
+    "country":"China",
+    "date":"August 21 \u2013 25",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/61-1.png",
+    "summary":"Beijing International Book Fair",
+    "url":"http://www.bibf.net/EN/Default.aspx"
+  },
+  {
+    "city":"Accra",
+    "country":"Ghana",
+    "date":"August 29\u00a0\u2013 September 1",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/64.png",
+    "summary":"Ghana International Book Fair",
+    "url":"http://www.ghanabookfair.com/?page=welcome"
+  },
+  {
+    "city":"Washington D.C.",
+    "country":"USA",
+    "date":"August 31",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/63-1.png",
+    "summary":"Library of Congress National Book Festival",
+    "url":"https://www.loc.gov/bookfest/"
+  },
+  {
+    "city":"Johannesburg",
+    "country":"South Africa",
+    "date":"August",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/39.png",
+    "summary":"Jozi Book Fair",
+    "url":"http://jozibookfair.org.za/"
+  },
+  {
+    "city":"Baku",
+    "country":"Azerbaijan",
+    "date":"September 1",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/65.png",
+    "summary":"Baku Book Fair",
+    "url":"https://freshexpo.ru/en/exhibition/23282/"
+  },
+  {
+    "city":"Riga",
+    "country":"Latvia",
+    "date":"September 1 \u2013 3",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/66-1.png",
+    "summary":"Latvian Book Fair",
+    "url":"http://www.bt1.lv/lbf/eng/"
+  },
+  {
+    "city":"Indonesia",
+    "date":"September 4\u00a0\u2013 8",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/70.png",
+    "summary":"Indonesia International Book Fair",
+    "url":"https://indonesia-bookfair.com/"
+  },
+  {
+    "city":"Johannesburg",
+    "country":"South Africa",
+    "date":"September 6\u00a0\u2013 8",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/69.png",
+    "summary":"South African Book Fair",
+    "url":"https://www.southafricanbookfair.co.za/"
+  },
+  {
+    "city":"Pasay",
+    "country":"Philippines",
+    "date":"September 11 \u2013 15",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/67.png",
+    "summary":"Manila International Book Fair",
+    "url":"https://manilabookfair.com/"
+  },
+  {
+    "city":"Gothenburg",
+    "country":"Sweden",
+    "date":"September 26 \u2013 29",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/68.png",
+    "summary":"G\u00f6teborg Book Fair",
+    "url":"https://goteborg-bookfair.com/"
+  },
+  {
+    "city":"Amman",
+    "country":"Jordan",
+    "date":"September 26\u00a0\u2013 October 5",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/72.png",
+    "summary":"Amman International Book Fair",
+    "url":"https://www.ammanbookfair.com/"
+  },
+  {
+    "city":"Nairobi",
+    "country":"Kenya",
+    "date":"September",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/71.png",
+    "summary":"Nairobi International Book Fair",
+    "url":"http://kenyapublishers.org/build-your-dreams-in-3d/"
+  },
+  {
+    "city":"Tokyo",
+    "country":"Japan",
+    "date":"September",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/74-1.png",
+    "summary":"Tokyo International Book Fair",
+    "url":"http://www.goldenjipangu.com/180704book.html"
+  },
+  {
+    "city":"Harare",
+    "country":"Zimbabwe",
+    "date":"September",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/75.png",
+    "summary":"Zimbabwe International Book Fair",
+    "url":"http://www.zibfa.org.zw/"
+  },
+  {
+    "city":"Frankfurt",
+    "country":"Germany",
+    "date":"October 16 \u2013 20",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/77.png",
+    "summary":"Frankfurt Book Fair",
+    "url":"https://www.buchmesse.de/en/exhibit"
+  },
+  {
+    "city":"Krakow",
+    "country":"Poland",
+    "date":"October 24 \u2013 27",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/78.png",
+    "summary":"Krakow International Book Fair",
+    "url":"https://www.ksiazka.krakow.pl/gb/"
+  },
+  {
+    "city":"Helsinki",
+    "country":"Finland",
+    "date":"October 24 \u201327",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/79.png",
+    "summary":"Helsinki Book Fair",
+    "url":"https://kirjamessut.messukeskus.com/"
+  },
+  {
+    "city":"Antwerp",
+    "country":"Belgium",
+    "date":"October 29\u00a0\u2013 November 3",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/83.png",
+    "summary":"Antwerp Book Fair",
+    "url":"https://www.boekenbeurs.be/"
+  },
+  {
+    "city":"Santiago",
+    "country":"Chile",
+    "date":"October",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/80.png",
+    "summary":"Santiago Book Fair",
+    "url":"https://camaradellibro.cl/ferias/filsa/"
+  },
+  {
+    "city":"Barcelona or Madrid",
+    "country":"Spain",
+    "date":"October",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/81-1.png",
+    "summary":"LIBER International Book Fair",
+    "url":"http://www.liber.es/en/"
+  },
+  {
+    "city":"Belgrade",
+    "country":"Serbia",
+    "date":"October",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/82.png",
+    "summary":"International Belgrade Book Fair",
+    "url":"https://sajamknjiga.rs/en/"
+  },
+  {
+    "city":"Berlin",
+    "country":"Germany",
+    "date":"October",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/84.png",
+    "summary":"Art Book Fair Berlin",
+    "url":"https://www.friendswithbooks.org/"
+  },
+  {
+    "city":"New York",
+    "country":"USA",
+    "date":"October",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/85.png",
+    "summary":"Editions Artists Book Fair",
+    "url":"http://eabfair.org/about/"
+  },
+  {
+    "city":"Vienna",
+    "country":"Austria",
+    "date":"November 6 \u2013 10",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/86.png",
+    "summary":"Vienna International Book Fair",
+    "url":"http://www.buchwien.at/"
+  },
+  {
+    "city":"Riyadh",
+    "country":"KSA",
+    "date":"November 13 \u2013 23",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/87.png",
+    "summary":"Riyadh International Book Fair",
+    "url":"https://riyadhbookfair.org.sa/"
+  },
+  {
+    "city":"Shanghai",
+    "country":"China",
+    "date":"November 15\u00a0\u2013 17",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/91.png",
+    "summary":"Shanghai International Children\u2019s Book Fair",
+    "url":"http://www.ccbookfair.com/en"
+  },
+  {
+    "city":"Montr\u00e9al",
+    "country":"Canada",
+    "date":"November 20\u00a0\u2013 25",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/95.png",
+    "summary":"Salon du livre de Montr\u00e9al",
+    "url":"http://www.salondulivredemontreal.com/"
+  },
+  {
+    "city":"Ljubljana",
+    "country":"Slovenia",
+    "date":"November 26\u00a0\u2013 December 1",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/97.png",
+    "summary":"Slovenian Book Fair",
+    "url":"http://www.knjiznisejem.si/"
+  },
+  {
+    "city":"Guadalajara",
+    "country":"Mexico",
+    "date":"November 30 \u2013 December 8",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/88.png",
+    "summary":"FIL de Guadalajara",
+    "url":"https://www.fil.com.mx/ingles/default.asp"
+  },
+  {
+    "city":"Sharjah",
+    "country":"UAE",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/89-1.png",
+    "summary":"Sharjah International Book Fair",
+    "url":"https://www.sibf.com/en/home"
+  },
+  {
+    "city":"Valletta",
+    "country":"Malta",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/90.png",
+    "summary":"Malta Book Festival",
+    "url":"http://ktieb.org.mt/national-book-festival/"
+  },
+  {
+    "city":"Bratislava",
+    "country":"Slovakia",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/92.png",
+    "summary":"Bibliot\u00e9ka Bratislava",
+    "url":"https://www.tradefairdates.com/Bibliotka-M1883/Bratislava.html"
+  },
+  {
+    "city":"Mexico City",
+    "country":"Mexico",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/93-1.png",
+    "summary":"International Children and Young Adults Book Fair (FILIJ)",
+    "url":"https://filij.cultura.gob.mx/calendario/parque-bicentenario/"
+  },
+  {
+    "city":"Istanbul",
+    "country":"Turkey",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/94.png",
+    "summary":"Istanbul Book Fair",
+    "url":"http://www.istanbulkitapfuari.com/en/"
+  },
+  {
+    "city":"Dublin",
+    "country":"Ireland",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/96.png",
+    "summary":"Dublin Book Festival",
+    "url":"http://www.dublinbookfestival.com/"
+  },
+  {
+    "city":"Pula",
+    "country":"Croatia",
+    "date":"November",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/98.png",
+    "summary":"Pula Festival of Books and Authors",
+    "url":"http://www.sanjamknjige.hr/hr/2018/naslovnica/"
+  },
+  {
+    "city":"Moscow",
+    "country":"Russia",
+    "date":"December 4 \u2013 8",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/101.png",
+    "summary":"Moscow Non/Fiction Book Fair",
+    "url":"http://www.moscowbookfair.ru/"
+  },
+  {
+    "city":"Rome",
+    "country":"Italy",
+    "date":"December",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/102-1-1.png",
+    "summary":"Rome Book Fair",
+    "url":"https://plpl.it/"
+  },
+  {
+    "city":"Sofia",
+    "country":"Bulgaria",
+    "date":"December",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/103.png",
+    "summary":"Sofia International Book Fair",
+    "url":"https://www.abk.bg/"
+  },
+  {
+    "city":"Jeddah",
+    "country":"Saudi Arabia",
+    "date":"December",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/104.png",
+    "summary":"Jeddah International Book Fair",
+    "url":"http://jeddahbookfair.com/en_US/"
+  },
+  {
+    "city":"Karachi",
+    "country":"Pakistan",
+    "date":"December",
+    "img":"https://www.kotobee.com/blog/wp-content/uploads/2018/11/karachi-international-book-fair.jpg",
+    "summary":"Karachi International Book Fair",
+    "url":"https://www.facebook.com/kibf.com.pk/"
+  }
+]
