@@ -1,0 +1,196 @@
+openapi: 3.0.1
+info:
+  title: Poems
+  description: defaultDescription
+  version: '0.1'
+servers:
+  # - description: 2232
+  # - url: 'http://localhost:9898/poems'
+  # - url: 'http://data.xwcbpx.com/poems'
+  - url: 'http://json.xwcbpx.com/poems'
+  # - url: 'http://data.xwcbpx.com'
+tags:
+  - name: poem
+    description: 古诗词，信息包括题目、作者、诗句、标签、释义等。
+  # - name: id
+  #   description: ID 因为选用JSON存放，目前没有值 
+  - name: author
+    description: 作者，信息包括年代、简介等。
+    # externalDocs:
+    #   description: Find out more
+    #   url: 'http://swagger.io'
+  # - name: paragraphs
+  #   description: 内容，以段落的形式存放，一句一段，数组
+  # - name: title
+  #   description: 题目
+  # - name: grade
+  #   description: 年级 收录在几年级的课本中 当然也可以放在Tags里
+  # - name: tags
+  #   description: 标签
+paths:
+  /poem:
+    get:
+      tags: 
+        - poem
+      description: 选择输入 作者、题目、内容、标签 等条件，按条件模糊查询。
+      summary: 查询古诗
+      parameters:
+        - name: title_like
+          in: query
+          description: 题目
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 示儿
+        - name: author_like
+          in: query
+          description: 作者 模糊查询
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 陆游
+        - name: paragraphs_like
+          in: query
+          description: 内容
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 九州
+
+        - name: tags_like
+          in: query
+          description: 标签
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 五年级
+      responses:
+        '200':
+          description: 返回古诗信息 题目、作者、内容。
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Poem'
+          # -----------------------------------------------------
+          # Links
+          # -----------------------------------------------------
+          links:
+            GetAuthorByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/GetAuthorByName'
+            # -----------------------------------------------------
+  /author:
+    get:
+      tags:
+        - author
+      description: 查询古诗作者、年代 等
+      summary: 查询古诗作者、年代
+      operationId: getAuthor
+      parameters:
+        # - name: author
+        #   in: query
+        #   description: 作者
+        #   required: false
+        #   # style: form
+        #   explode: true
+        #   schema:
+        #     type: string
+        #   example: 陆游
+        - name: author_like
+          in: query
+          description: 作者
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 陆
+        - name: dynasty_like
+          in: query
+          description: 朝代
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 宋
+      responses:
+        '200':
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Author'
+          links:
+            GetPoemByAuthor:   # <---- arbitrary name for the link
+              $ref: '#/components/links/GetPoemByAuthor'
+components:
+  schemas:
+    Poem:
+      type: object
+      required:
+        - title
+        # - paragraphs
+      properties:
+        title:
+          type: string
+          # example: 李白
+        author:
+          type: string
+          example: 李白
+        paragraphs:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+        # authorinfo:
+        #   type: object
+        #   $ref: '#/components/schemas/Author'
+    Author:
+      type: object
+      required:
+        - author
+        - dynasty
+      properties:
+        author:
+          type: string
+          example: 陆游
+        dynasty:
+          type: string
+          example: 宋
+        desc:
+          type: string
+  links:
+    GetAuthorByName:   # <---- arbitrary name for the link
+      operationId: getAuthor
+      # or
+      # operationRef: '#/paths/~1users~1{userId}/get'
+      parameters:
+        author_like: $response.body#/[1]/author
+      description: >
+        本来想返回的author，查一下是哪个朝代，但返回的是数组，一直没有找到正确的
+        解析方法 这地方不通，也没有见过通的时候是什么样.
+        GetPoemByAuthor:   # <---- arbitrary name for the link
+    GetPoemByAuthor:   # <---- arbitrary name for the link
+      operationId: get_poem
+      # or
+      # operationRef: '#/paths/~1users~1{userId}/get'
+      parameters:
+        author_like: $response.body#/[1]/author
+      description: >
+        这个也是数组，一直没有找到正确的
+        解析方法 这地方不通，也没有见过通的时候是什么样.

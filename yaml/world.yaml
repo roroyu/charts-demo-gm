@@ -1,0 +1,295 @@
+openapi: 3.0.1
+info:
+  title: 世界
+  description: 国家相关数据
+  version: '0.1'
+servers:
+  # - description: 2232
+  # - url: 'http://localhost:9898/poems'
+  # - url: 'http://data.xwcbpx.com/poems'
+  - url: 'http://json.xwcbpx.com/world'
+  # - url: 'http://data.xwcbpx.com'
+tags:
+  - name: Country
+    description: 国家信息
+  # - name: id
+  #   description: ID 因为选用JSON存放，目前没有值 
+  - name: Region
+    description: 地区信息
+  - name: Union
+    description: 国家组织
+    # externalDocs:
+    #   description: Find out more
+    #   url: 'http://swagger.io'
+  # - name: paragraphs
+  #   description: 内容，以段落的形式存放，一句一段，数组
+  # - name: title
+  #   description: 题目
+  # - name: grade
+  #   description: 年级 收录在几年级的课本中 当然也可以放在Tags里
+  # - name: tags
+  #   description: 标签
+paths:
+  /country:
+    get:
+      tags: 
+        - Country
+      description: Get country info
+      summary: Country Info
+      parameters:
+        - name: name
+          in: query
+          description: 中文全名
+          required: false
+          explode: true
+          schema:
+            type: string
+          example: 中国
+        - name: name_like
+          in: query
+          description: 中文名称
+          required: false
+          explode: true
+          schema:
+            type: string
+          example: 中国
+        - name: en_like
+          in: query
+          description: name in english
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: china
+        # - name: paragraphs_like
+        #   in: query
+        #   description: 内容
+        #   required: false
+        #   # style: form
+        #   explode: true
+        #   schema:
+        #     type: string
+        #   example: 九州
+        - name: tags_like
+          in: query
+          description: 标签
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 一带一路
+      responses:
+        '200':
+          description: Country Info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CountryInfo'
+          # -----------------------------------------------------
+          # Links
+          # -----------------------------------------------------
+          # links:
+          #   GetAuthorByName:   # <---- arbitrary name for the link
+          #     $ref: '#/components/links/GetAuthorByName'
+          # -----------------------------------------------------
+  /bnr:
+    get:
+      tags:
+        - Union
+      description: The Belt and Road
+      summary: B&R 一带一路
+      # operationId: getAuthor
+      parameters:
+        - name: country_like
+          in: query
+          description: 国家
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 中国
+      responses:
+        '200':
+          description: B&B
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            getCountryByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/getCountryByName'
+  /asean:
+    get:
+      tags:
+        - Union
+      description: 东南亚国家联盟（Association of Southeast Asian Nations－ASEAN），简称东盟（ASEAN）
+      summary: 东盟（ASEAN）
+      # operationId: getAuthor
+      parameters:
+        - name: country_like
+          in: query
+          description: 国家
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 国
+      responses:
+        '200':
+          description: 东盟（ASEAN）
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            getCountryByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/getCountryByName'  
+  /brics:
+    get:
+      tags:
+        - Union
+      description: 金砖国家（BRICS）
+      summary: 金砖国家（BRICS）
+      # operationId: getAuthor
+      parameters:
+        - name: country_like
+          in: query
+          description: 国家
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 国
+      responses:
+        '200':
+          description: 国家列表
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            getCountryByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/getCountryByName'  
+  /eu:
+    get:
+      tags:
+        - Union
+      description: 欧盟 EU
+      summary: 欧盟 EU
+      # operationId: getAuthor
+      parameters:
+        - name: country_like
+          in: query
+          description: 国家
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 国
+      responses:
+        '200':
+          description: 国家列表
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            getCountryByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/getCountryByName'  
+  /peripheral:
+    get:
+      tags:
+        - Union
+      description: 周边国家
+      summary: 周边国家
+      parameters:
+        - name: country_like
+          in: query
+          description: 国家
+          required: false
+          # style: form
+          explode: true
+          schema:
+            type: string
+          example: 国
+      responses:
+        '200':
+          description: 国家列表
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+          links:
+            getCountryByName:   # <---- arbitrary name for the link
+              $ref: '#/components/links/getCountryByName'  
+components:
+  schemas:
+    CountryInfo:
+      type: object
+      required:
+        - name
+        - name_en
+        # - paragraphs
+      properties:
+        name:
+          type: string
+          # example: 李白
+        name_en:
+          type: string
+          example: 李白
+        code:
+          type: string
+          example: 李白
+        centroid:
+          type: array
+          items:
+            type: string
+          example: [ 107.13847552986205, 33.56035640326697 ]
+        tags:
+          type: array
+          items:
+            type: string
+    Country:
+      type: object
+      required:
+        - country
+      #   - dynasty
+      properties:
+        country:
+          type: string
+          example: 中国
+  links:
+    getCountryByName:   # <---- arbitrary name for the link
+      operationId: get_country
+      # or
+      # operationRef: '#/paths/~1users~1{userId}/get'
+      parameters:
+        name_like: $response.body#/[1]/country
+      description: ...
+    # GetPoemByAuthor:   # <---- arbitrary name for the link
+    #   operationId: get_poem
+    #   # or
+    #   # operationRef: '#/paths/~1users~1{userId}/get'
+    #   parameters:
+    #     author_like: $response.body#/[1]/author
+    #   description: >
+    #     这个也是数组，一直没有找到正确的
+    #     解析方法 这地方不通，也没有见过通的时候是什么样.
